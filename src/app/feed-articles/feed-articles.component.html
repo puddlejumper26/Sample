@@ -1,0 +1,25 @@
+<ng-template [ngIf]="isOk$ | async">
+  <ol>
+    <ng-template ngFor [ngForOf]="articles$ | async" let-article>
+      <li>
+        <ol>
+          <li style="font-weight: 900;">Title : {{article.title}}</li>
+          <li>Author - {{article.author}}</li>
+          <li>Des - {{article.description}}</li>
+        </ol>
+      </li>
+    </ng-template>
+  </ol>
+
+  <p-paginator
+    [first]="first$ | async"
+    [rows]="pageSize$ | async"
+    [totalRecords]="totalRecords$ | async"
+    (onPageChange)="setPage($event)"
+  ></p-paginator>
+</ng-template>
+
+<p *ngIf="error$ | async as error">{{error}}</p>
+
+
+<app-news-detail></app-news-detail>
