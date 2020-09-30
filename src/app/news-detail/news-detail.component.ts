@@ -20,7 +20,7 @@ export class NewsDetailComponent implements OnInit {
   }
 
   getnews(){
-    return fetch(`http://newsapi.org/v2/top-headlines?country=us&apiKey=d5ddc5e99a7042a6a0c6e5db00dfb8b4`)
+     fetch(`http://newsapi.org/v2/top-headlines?country=us&apiKey=d5ddc5e99a7042a6a0c6e5db00dfb8b4`)
       .then(res => res.json())
       .then(response => {
         for(var i=0;i<response.articles.length;i++){
